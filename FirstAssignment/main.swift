@@ -86,7 +86,7 @@ class Calculator3 {
     var firstNumber: Double
     var secondNumber: Double
     
-    init(firstNumber: Double, secondNumber: Double) {
+    init(_ firstNumber: Double, _ secondNumber: Double) {
         self.firstNumber = firstNumber
         self.secondNumber = secondNumber
     }
@@ -125,10 +125,10 @@ class DivideOperation: Calculator3 {
     }
 }
 
-let addResult = AddOperation(firstNumber: 10, secondNumber: 5)
-let subtractResult = SubtractOperation(firstNumber: 10, secondNumber: 5)
-let multiplyResult = MultiplyOperation(firstNumber: 10, secondNumber: 5)
-let divideResult = DivideOperation(firstNumber: 10, secondNumber: 0)
+let addResult = AddOperation(10, 5)
+let subtractResult = SubtractOperation(10, 5)
+let multiplyResult = MultiplyOperation(10, 5)
+let divideResult = DivideOperation(10, 0)
 
 let add = addResult.calculate()
 let sub = subtractResult.calculate()
@@ -142,4 +142,32 @@ print(divi)
 
 
 // Lv4
+
+class Calculator4 {
+    
+    var operString: String
+    
+    init(_ operString: String) {
+        self.operString = operString
+    }
+    
+    func calculate(_ firstNumber: Double, _ secondNumber: Double) -> Double {
+        switch operString {
+        case "+":
+            return firstNumber + secondNumber
+        case "-":
+            return firstNumber - secondNumber
+        case "*":
+            return firstNumber * secondNumber
+        case "/":
+            if secondNumber == 0 {
+                return 0
+            } else {
+                return firstNumber / secondNumber
+            }
+        default:
+            return 0
+        }
+    }
+}
 
