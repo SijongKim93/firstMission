@@ -143,31 +143,67 @@ print(divi)
 
 // Lv4
 
+class AbstractOperation {
+    func operate(_ firstNumber: Double, _ secondNumber: Double) -> Double {
+        fatalError("재정의 필요")
+    }
+}
+
 class Calculator4 {
+    var result: Double
     
-    var operString: String
-    
-    init(_ operString: String) {
-        self.operString = operString
+    init(result: Double) {
+        self.result = result
     }
     
-    func calculate(_ firstNumber: Double, _ secondNumber: Double) -> Double {
-        switch operString {
-        case "+":
-            return firstNumber + secondNumber
-        case "-":
-            return firstNumber - secondNumber
-        case "*":
-            return firstNumber * secondNumber
-        case "/":
-            if secondNumber == 0 {
-                return 0
-            } else {
-                return firstNumber / secondNumber
-            }
-        default:
+    func calculate(operation: AbstractOperation, _ firstNumber: Double, _ secondNumber: Double) -> Double {
+            return operation.operate(firstNumber,secondNumber)
+        }
+}
+
+
+class AddOperation4: AbstractOperation {
+    override func operate(_ firstNumber: Double, _ secondNumber: Double) -> Double {
+        return firstNumber + secondNumber
+    }
+}
+
+class SubtractOperation4: AbstractOperation {
+    override func operate(_ firstNumber: Double, _ secondNumber: Double) -> Double {
+        return firstNumber - secondNumber
+    }
+}
+
+class MultiplyOperation4: AbstractOperation {
+    override func operate(_ firstNumber: Double, _ secondNumber: Double) -> Double {
+        return firstNumber * secondNumber
+    }
+}
+
+class DivideOperation4: AbstractOperation {
+    override func operate(_ firstNumber: Double, _ secondNumber: Double) -> Double {
+        if secondNumber == 0 {
             return 0
+        } else {
+            return firstNumber / secondNumber
         }
     }
 }
 
+
+let calculator4 = Calculator4(result: 0)
+
+let addOperation4 = AddOperation4()
+let subtractOperation4 = SubtractOperation4()
+let multiplyOperation4 = MultiplyOperation4()
+let divideOperation4 = DivideOperation4()
+
+let result1111 = calculator4.calculate(operation: addOperation4, 10, 7)
+let result2222 = calculator4.calculate(operation: subtractOperation4, 17, 5)
+let result3333 = calculator4.calculate(operation: multiplyOperation4, 10, 5)
+let result4444 = calculator4.calculate(operation: divideOperation4, 10, 5)
+
+print(result1111)
+print(result2222)
+print(result3333)
+print(result4444)
