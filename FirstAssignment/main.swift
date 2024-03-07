@@ -74,7 +74,6 @@ class Calculator2 {
 
 
 let calculator2 = Calculator2()
-
 let result11 = calculator2.calculate("%", 10, 3)
 print(result11)
 
@@ -84,46 +83,40 @@ print(result11)
 
 class Calculator3 {
     
-    var operatorString: String
     var firstNumber: Double
     var secondNumber: Double
     
-    init(operatorString: String, firstNumber: Double, secondNumber: Double) {
-        self.operatorString = operatorString
+    init(firstNumber: Double, secondNumber: Double) {
         self.firstNumber = firstNumber
         self.secondNumber = secondNumber
     }
-    
-    func calculate() -> Double {
-        return 0
-        
-    }
+
 }
 
 
 class AddOperation: Calculator3 {
-   override func calculate() -> Double {
+   func calculate() -> Double {
         return firstNumber + secondNumber
     }
 }
 
 
 class SubtractOperation: Calculator3 {
-    override func calculate() -> Double {
+    func calculate() -> Double {
         return firstNumber - secondNumber
     }
 }
 
 
 class MultiplyOperation: Calculator3 {
-    override func calculate() -> Double {
+    func calculate() -> Double {
         return firstNumber * secondNumber
     }
 }
 
 
 class DivideOperation: Calculator3 {
-    override func calculate() -> Double {
+    func calculate() -> Double {
         if secondNumber == 0 {
             return 0
         } else {
@@ -132,4 +125,21 @@ class DivideOperation: Calculator3 {
     }
 }
 
+let addResult = AddOperation(firstNumber: 10, secondNumber: 5)
+let subtractResult = SubtractOperation(firstNumber: 10, secondNumber: 5)
+let multiplyResult = MultiplyOperation(firstNumber: 10, secondNumber: 5)
+let divideResult = DivideOperation(firstNumber: 10, secondNumber: 0)
+
+let add = addResult.calculate()
+let sub = subtractResult.calculate()
+let mul = multiplyResult.calculate()
+let divi = divideResult.calculate()
+
+print(add)
+print(sub)
+print(mul)
+print(divi)
+
+
+// Lv4
 
