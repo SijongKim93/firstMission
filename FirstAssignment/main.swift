@@ -84,7 +84,17 @@ print(result11)
 
 class Calculator3 {
     
-    func calculate(_ operatorString: String, _ firstNumber: Double, _ secondNumber: Double) -> Double {
+    var operatorString: String
+    var firstNumber: Double
+    var secondNumber: Double
+    
+    init(operatorString: String, firstNumber: Double, secondNumber: Double) {
+        self.operatorString = operatorString
+        self.firstNumber = firstNumber
+        self.secondNumber = secondNumber
+    }
+    
+    func calculate() -> Double {
         return 0
         
     }
@@ -92,28 +102,28 @@ class Calculator3 {
 
 
 class AddOperation: Calculator3 {
-    func calculate(_ firstNumber: Double, _ secondNumber:Double) -> Double {
+   override func calculate() -> Double {
         return firstNumber + secondNumber
     }
 }
 
 
 class SubtractOperation: Calculator3 {
-    func calculate(_ firstNumber: Double, _ secondNumber:Double) -> Double {
+    override func calculate() -> Double {
         return firstNumber - secondNumber
     }
 }
 
 
 class MultiplyOperation: Calculator3 {
-    func calculate(_ firstNumber: Double, _ secondNumber:Double) -> Double {
+    override func calculate() -> Double {
         return firstNumber * secondNumber
     }
 }
 
 
 class DivideOperation: Calculator3 {
-    func calculate(_ firstNumber: Double, _ secondNumber:Double) -> Double {
+    override func calculate() -> Double {
         if secondNumber == 0 {
             return 0
         } else {
@@ -122,12 +132,4 @@ class DivideOperation: Calculator3 {
     }
 }
 
-let addOperation = AddOperation()
-let subtractOperation = SubtractOperation()
-let multiplyOperation = MultiplyOperation()
-let divideOperation = DivideOperation()
 
-print(addOperation.calculate(10, 5))
-print(subtractOperation.calculate(10, 5))
-print(multiplyOperation.calculate(10, 5))
-print(divideOperation.calculate(10, 5))
