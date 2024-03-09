@@ -10,40 +10,32 @@
 
 // Lv 1
 class Calculator1 {
-    func calculate(_ operatorString: String, _ firstNumber: Double, _ secondNumber: Double) -> Double {
-        switch operatorString {
-        case "+":
-            return firstNumber + secondNumber
-        case "-":
-            return firstNumber - secondNumber
-        case "*":
-            return firstNumber * secondNumber
-        case "/":
-            guard secondNumber != 0 else {
-                return 0
-            }
-            return firstNumber / secondNumber
-        default:
-            return 0
+    func add(firstNumber: Int, secondNumber: Int) -> Int {
+        return firstNumber + secondNumber
+    }
+    func minus(fistNumber: Int, secondNumber: Int) -> Int {
+        return fistNumber - secondNumber
+    }
+    func multiply(fistNumber: Int, secondNumber: Int) -> Int {
+        return fistNumber * secondNumber
+    }
+    func divide(fistNumber: Int, secondNumber: Int) -> Double {
+        if secondNumber == 0 {
+            return 0.0
+        } else {
+            return Double(fistNumber) / Double(secondNumber)   // Double(firstNumber / secondNumber) 와는 매우 다르다. 숙지
         }
     }
 }
 
-let calculator = Calculator1()
+var calculator = Calculator1()
 
-let result1 = calculator.calculate("+", 10, 5)
-let result2 = calculator.calculate("-", 10, 5)
-let result3 = calculator.calculate("*", 10, 5)
-let result4 = calculator.calculate("/", 10, 0)
+let add1 = calculator.add(firstNumber: 3, secondNumber: 2)
+let minus1 = calculator.minus(fistNumber: 10, secondNumber: 7)
+let mult1 = calculator.multiply(fistNumber: 13, secondNumber: 2)
+let divi1 = calculator.divide(fistNumber: 13, secondNumber: 3)
 
-let result: [Double] = [result1, result2, result3, result4]
-
-for i in result {
-    print("값은 \(i)입니다.")
-    
-}
-
-
+print(add1, minus1, mult1, divi1)
 
 // Lv2
 
